@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PayRecover — AI Invoice Chasing for Freelancers",
+  title: "PayRecover — AI-Powered Invoice Recovery for Agencies",
   description:
-    "Stop chasing late payments. PayRecover automatically follows up on overdue invoices with AI-written reminders that sound like you. Get paid 2x faster.",
+    "Stop losing revenue to late payments. PayRecover sends smart, personalized follow-ups to late-paying clients so agencies get paid in days, not months.",
 };
 
 export default function RootLayout({
