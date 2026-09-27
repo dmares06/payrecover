@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PayRecover — AI Invoice Chasing for Freelancers
 
-## Getting Started
+Stop chasing late payments. PayRecover connects to your invoicing tool and
+sends smart, personalized follow-up reminders to late-paying clients.
 
-First, run the development server:
+## What's built so far
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Landing page (features, pricing, waitlist)
+- Waitlist API (in-memory — hooks up to Supabase when you're ready)
+- AI follow-up engine (generates personalized reminders in the owner's voice)
+- Stripe integration scaffolding (needs your keys to activate)
+- Supabase scaffolding (needs your project to persist data)
+
+## What you need to do
+
+### 1. Supabase (free)
+
+1. Go to https://supabase.com and create a free project
+2. Copy the **Project URL** and **anon public key**
+3. Put them in `.env.local`:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Stripe (free to create)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Create a Stripe account at https://stripe.com
+2. Copy your **Secret Key** and **Publishable Key**
+3. Create 3 products in Stripe Dashboard (Solo $29, Pro $49, Agency $99)
+4. Copy the Price IDs
+5. Put them in `.env.local`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+STRIPE_SECRET_KEY=sk_live_...
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
+STRIPE_PRICE_SOLO=price_...
+STRIPE_PRICE_PRO=price_...
+STRIPE_PRICE_AGENCY=price_...
+```
 
-## Learn More
+### 3. OpenRouter (free credits available)
 
-To learn more about Next.js, take a look at the following resources:
+1. Go to https://openrouter.ai and sign up
+2. Create an API key
+3. Put it in `.env.local`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+OPENROUTER_API_KEY=sk-or-v1-...
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Domain ($12/year — from the $100 budget)
 
-## Deploy on Vercel
+1. Buy a domain (e.g. payrecover.com) from Namecheap or Cloudflare
+2. Connect it to Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx vercel --prod
+```
+
+## Growth path to $10K/mo in 90 days
+
+| Month | Customers | Pricing | Revenue | Action |
+|-------|-----------|---------|---------|--------|
+| Month 1 | 0-50 | Waitlist + free trials | $0 | Build + inbound |
+| Month 2 | 50-150 | $49 avg/mo | $2.5K-$7.5K | Direct outreach |
+| Month 3 | 150-250 | $49 avg/mo | $7.5K-$12K | Scale outreach |
+
+### Distribution channels (I handle these):
+- **SEO content**: Blog posts targeting "invoice chasing," "late payment automation," "freelancer payment tools"
+- **Reddit**: r/freelance, r/smallbusiness, r/webdev — answer payment questions, soft-link
+- **Cold email**: Scrape freelancer directories and reach out
+- **Product Hunt**: Launch on launch day
+- **Indie Hackers**: Build-in-public threads
