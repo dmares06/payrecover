@@ -1,5 +1,6 @@
 import Link from "next/link";
 import WaitlistForm from "@/components/WaitlistForm";
+import DemoGenerator from "@/components/DemoGenerator";
 
 export default function LandingPage() {
   return (
@@ -219,6 +220,20 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Live Demo */}
+      <section id="demo" className="py-20 bg-gradient-to-b from-indigo-50 to-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            Try it right now
+          </h2>
+          <p className="text-center text-gray-600 max-w-xl mx-auto mb-12">
+            Enter a few details and watch PayRecover write a follow-up that
+            sounds like a real person.
+          </p>
+          <DemoGenerator />
         </div>
       </section>
 
